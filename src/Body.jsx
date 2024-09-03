@@ -60,18 +60,7 @@ const ProductLists = [
   },
 ];
 
-const addProduct = (event) => {
-  event.preventDefault();
-  const newProduct = {
-    id: 9,
-    productImg: event.target[0].value,
-    title: event.target[1].value,
-    price: event.target[2].value,
-    discount: event.target[3].value,
-  };
-  ProductLists.push(newProduct)
-  console.log(ProductLists)
-};
+
 
 const Body = () => {
   let [productlist , setProductlist] = useState(ProductLists)
@@ -79,9 +68,9 @@ const Body = () => {
   const addProduct = (event) => {
     event.preventDefault();
     const newProduct = [
-      ...ProductLists,
+      ...productlist,
       {
-      id: productlist.length,
+      id: productlist.length + 1,
       productImg: event.target[0].value,
       title: event.target[1].value,
       price: event.target[2].value,
@@ -89,9 +78,9 @@ const Body = () => {
     }
     ];
     setProductlist(newProduct)
+    console.log(productlist)
   };
-  
-  console.log(productlist)
+
   return (
     <>
       {/* body product list */}
@@ -111,7 +100,7 @@ const Body = () => {
           {productlist.map((product) => {
             return (
               <div className="card" key={product.id}>
-                <img src={product.productimg} alt={product.title} />
+                <img src ={product.productimg} alt={product.title} />
                 <div className="product-title-wrapper">
                   <p>{product.title}</p>
                   <i className="fa-solid fa-cart-plus"></i>
@@ -186,29 +175,29 @@ const Body = () => {
             <div className="modal-body">
               {/* form */}
               <form onSubmit={addProduct} className="form">
-                <label htmlFor="product-img">Đường dẫn ảnh sản phẩm</label>
+                <label htmlFor="productimg">Đường dẫn ảnh sản phẩm</label>
                 <br />
                 <input
                   type="text"
-                  name="product-img"
-                  id="product-img"
+                  name="productimg"
+                  id="productimg"
                   placeholder="vd: ./public/..."
                 />
                 <br />
-                <label htmlFor="product-title">Mô tả sản phẩm</label>
+                <label htmlFor="title">Mô tả sản phẩm</label>
                 <br />
-                <input type="text" name="product-title" id="product-title" />
+                <input type="text" name="title" id="title" />
                 <br />
-                <label htmlFor="product-price">Giá bán</label>
+                <label htmlFor="price">Giá bán</label>
                 <br />
-                <input type="number" name="product-price" id="product-price" />
+                <input type="number" name="price" id="price" />
                 <br />
-                <label htmlFor="product-discount">% giảm giá</label>
+                <label htmlFor="discount">% giảm giá</label>
                 <br />
                 <input
                   type="text"
-                  name="product-discount"
-                  id="product-discount"
+                  name="discount"
+                  id="discount"
                 />
                 <br />
                 <div className="btn-form">

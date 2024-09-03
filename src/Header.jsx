@@ -24,7 +24,7 @@ const Header = () => {
         <input type="text" placeholder="Tìm kiếm" />
       </div>
       <div className="fill-wrapper">
-        <div class="dropdown">
+        <div className="dropdown">
           <button
             className="btn btn-secondary dropdown-toggle"
             type="button"
