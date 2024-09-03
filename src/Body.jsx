@@ -60,22 +60,31 @@ const ProductLists = [
 const addProduct = (event) => {
   event.preventDefault();
   const newProduct = {
+    id: 9,
     productImg: event.target[0].value,
     title: event.target[1].value,
     price: event.target[2].value,
     discount: event.target[3].value,
   };
-  console.log(newProduct);
+  ProductLists.push(newProduct)
+  console.log(ProductLists)
 };
 
 const Body = () => {
   return (
     <>
-        {/* body product list */}
+      {/* body product list */}
       <div className="body">
         <div className="add-product-btn">
           <h3>Quà tặng</h3>
-          <a href="#form">Tạo</a>
+          <button
+            type="button"
+            className="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+          >
+            Tạo
+          </button>
         </div>
         <div className="product-lists">
           {ProductLists.map((product) => {
@@ -129,49 +138,65 @@ const Body = () => {
           </ul>
         </nav>
       </div>
-          {/* form */}
-      <div className="form" id="form">
-        <h3>Thêm sản phẩm</h3>
-        <form onSubmit={addProduct}>
-          <label htmlFor="img-input">Hình ảnh sản phẩm</label>
-          <br />
-          <input
-            type="text"
-            name="src"
-            id="img-input"
-            placeholder="Đường dẫn hình ảnh"
-          />
-          <br />
-          <label htmlFor="tilte-product">Tiêu đề sản phẩm</label>
-          <br />
-          <input
-            type="text"
-            name="title"
-            id="title-product"
-            placeholder="Nhập mô tả sản phẩm"
-          />
-          <br />
-          <label htmlFor="price-product">Giá sản phẩm</label>
-          <br />
-          <input
-            type="number"
-            name="price"
-            id="price-product"
-            placeholder="Nhập giá bán"
-          />
-          <label htmlFor="discount-product">% giảm giá</label>
-          <br />
-          <input
-            type="text"
-            name="discount"
-            id="discount-product"
-            placeholder="% giảm giá"
-          />
-          <div className="btn-form">
-            <button id="btn-close">Đóng</button>
-            <button type="subbmit" id="btn-submit">Lưu sản phẩm</button>
+
+      {/* <!-- Modal form --> */}
+      <div
+        className="modal fade"
+        id="staticBackdrop"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabIndex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5" id="staticBackdropLabel">
+                Thêm sản phẩm
+              </h1>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body">
+              {/* form */}
+              <form onSubmit={addProduct} className="form">
+                <label htmlFor="product-img">Đường dẫn ảnh sản phẩm</label>
+                <br />
+                <input
+                  type="text"
+                  name="product-img"
+                  id="product-img"
+                  placeholder="vd: ./public/..."
+                />
+                <br />
+                <label htmlFor="product-title">Mô tả sản phẩm</label>
+                <br />
+                <input type="text" name="product-title" id="product-title" />
+                <br />
+                <label htmlFor="product-price">Giá bán</label>
+                <br />
+                <input type="number" name="product-price" id="product-price" />
+                <br />
+                <label htmlFor="product-discount">% giảm giá</label>
+                <br />
+                <input
+                  type="text"
+                  name="product-discount"
+                  id="product-discount"
+                />
+                <br />
+                <div className="btn-form">
+                  <button className="btn btn-secondary" data-bs-dismiss="modal">Lưu</button>
+                </div>
+              </form>
+            </div>
           </div>
-        </form>
+        </div>
       </div>
     </>
   );
