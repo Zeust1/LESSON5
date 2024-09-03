@@ -1,3 +1,6 @@
+import { useState } from "react";
+
+
 const ProductLists = [
   {
     id: 1,
@@ -71,6 +74,24 @@ const addProduct = (event) => {
 };
 
 const Body = () => {
+  let [productlist , setProductlist] = useState(ProductLists)
+
+  const addProduct = (event) => {
+    event.preventDefault();
+    const newProduct = [
+      ...ProductLists,
+      {
+      id: productlist.length,
+      productImg: event.target[0].value,
+      title: event.target[1].value,
+      price: event.target[2].value,
+      discount: event.target[3].value
+    }
+    ];
+    setProductlist(newProduct)
+  };
+  
+  console.log(productlist)
   return (
     <>
       {/* body product list */}
@@ -87,7 +108,7 @@ const Body = () => {
           </button>
         </div>
         <div className="product-lists">
-          {ProductLists.map((product) => {
+          {productlist.map((product) => {
             return (
               <div className="card" key={product.id}>
                 <img src={product.productimg} alt={product.title} />

@@ -3,7 +3,12 @@ const Header = () => {
     <div className="header">
       <h1>Yêu thích ngay</h1>
       <div style={{ display: "flex", gap: "24px" }}>
-        <video style={{ maxWidth: "400px", maxWidth: "400px" }} controls loop autoPlay>
+        <video
+          style={{ maxWidth: "400px", maxWidth: "400px" }}
+          controls
+          loop
+          autoPlay
+        >
           <source src="./public/video/video.mp4"></source>
         </video>
         <h3>
@@ -19,76 +24,88 @@ const Header = () => {
         <input type="text" placeholder="Tìm kiếm" />
       </div>
       <div className="fill-wrapper">
-        <div className="dropdown">
+        <div class="dropdown">
           <button
             className="btn btn-secondary dropdown-toggle"
             type="button"
-            id="dropdownMenuButton"
-            data-toggle="dropdown"
-            aria-haspopup="true"
+            data-bs-toggle="dropdown"
             aria-expanded="false"
           >
             Trạng thái
           </button>
-          <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a className="dropdown-item" href="#">
-              Action
-            </a>
-            <a className="dropdown-item" href="#">
-              Another action
-            </a>
-            <a className="dropdown-item" href="#">
-              Something else here
-            </a>
-          </div>
+          <ul className="dropdown-menu">
+            <li>
+              <a className="dropdown-item" href="#">
+                Action
+              </a>
+            </li>
+            <li>
+              <a className="dropdown-item" href="#">
+                Another action
+              </a>
+            </li>
+            <li>
+              <a className="dropdown-item" href="#">
+                Something else here
+              </a>
+            </li>
+          </ul>
         </div>
 
         <div className="dropdown">
           <button
             className="btn btn-secondary dropdown-toggle"
             type="button"
-            id="dropdownMenuButton"
-            data-toggle="dropdown"
-            aria-haspopup="true"
+            data-bs-toggle="dropdown"
             aria-expanded="false"
           >
             Danh mục
           </button>
-          <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a className="dropdown-item" href="#">
-              Action
-            </a>
-            <a className="dropdown-item" href="#">
-              Another action
-            </a>
-            <a className="dropdown-item" href="#">
-              Something else here
-            </a>
-          </div>
+          <ul className="dropdown-menu">
+            <li>
+              <a className="dropdown-item" href="#">
+                Action
+              </a>
+            </li>
+            <li>
+              <a className="dropdown-item" href="#">
+                Another action
+              </a>
+            </li>
+            <li>
+              <a className="dropdown-item" href="#">
+                Something else here
+              </a>
+            </li>
+          </ul>
         </div>
 
         <div className="dropdown">
           <button
             className="btn btn-secondary dropdown-toggle"
             type="button"
-            id="dropdownMenuButton"
-            data-toggle="dropdown"
-            aria-haspopup="true"
+            data-bs-toggle="dropdown"
             aria-expanded="false"
           >
             Đã thêm gần đây
           </button>
-          <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a className="dropdown-item" href="#">
-              Action
-            </a>
-            <a className="dropdown-item" href="#">
-              Another action
-            </a>
-            <a className="dropdown-item" href="#">
-              Something else here
-            </a>
-          </div>
+          <ul className="dropdown-menu">
+            <li>
+              <a className="dropdown-item" href="#">
+                Action
+              </a>
+            </li>
+            <li>
+              <a className="dropdown-item" href="#">
+                Another action
+              </a>
+            </li>
+            <li>
+              <a className="dropdown-item" href="#">
+                Something else here
+              </a>
+            </li>
+          </ul>
         </div>
         <i className="fa-solid fa-list-ul fa-xl"></i>
       </div>
