@@ -85,7 +85,7 @@ const Body = () => {
       price: event.target[2].value,
       discount: event.target[3].value
     }
-    setProductlist([...productlist, newProduct])
+    setProductlist([newProduct,...productlist])
   };
 
   return (
@@ -107,7 +107,8 @@ const Body = () => {
           {productlist.map((product) => {
             return (
               <div className="card" key={product.id}>
-                <img src ={product.productimg} alt={product.title} />
+                  
+                <img src ={product.productimg} alt={product.title}/>
                 <div className="product-title-wrapper">
                   <p>{product.title}</p>
                   <i className="fa-solid fa-cart-plus"></i>
@@ -197,7 +198,7 @@ const Body = () => {
                 <br />
                 <label htmlFor="price">Giá bán</label>
                 <br />
-                <input type="number" name="price" id="price" />
+                <input type="text" name="price" id="price" />
                 <br />
                 <label htmlFor="discount">% giảm giá</label>
                 <br />
