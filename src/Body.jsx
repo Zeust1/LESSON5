@@ -63,22 +63,29 @@ const ProductLists = [
 
 
 const Body = () => {
-  let [productlist , setProductlist] = useState(ProductLists)
+  const [productlist , setProductlist] = useState(ProductLists);
 
   const addProduct = (event) => {
     event.preventDefault();
-    const newProduct = [
-      ...productlist,
-      {
+    console.log(event)
+    // const newProduct = [
+    //   ...productlist,
+    //   {
+    //   id: productlist.length + 1,
+    //   productImg: event.target[0].value,
+    //   title: event.target[1].value,
+    //   price: event.target[2].value,
+    //   discount: event.target[3].value
+    // }
+    // ];
+    const newProduct = {
       id: productlist.length + 1,
-      productImg: event.target[0].value,
+      productimg: event.target[0].value,
       title: event.target[1].value,
       price: event.target[2].value,
       discount: event.target[3].value
     }
-    ];
-    setProductlist(newProduct)
-    console.log(productlist)
+    setProductlist([...productlist, newProduct])
   };
 
   return (
